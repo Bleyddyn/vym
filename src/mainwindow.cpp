@@ -4322,11 +4322,12 @@ void Main::fileLoad(const File::LoadMode &lmode)
     }
 
     QString filter;
-    filter += "VYM map " + tr("or", "File Dialog") + " Freemind map" +
-              " (*.xml *.vym *.vyp *.mm);;";
+    filter += "VYM map " + tr("or", "File Dialog") + " Freemind map" + " Owl map" +
+              " (*.xml *.vym *.vyp *.mm *.owl);;";
     filter += "VYM map (*.vym *.vyp);;";
     filter += "VYM Backups (*.vym~);;";
     filter += "Freemind map (*.mm);;";
+    filter += "OWL map (*.owl);;";
     filter += "XML (*.xml);;";
     filter += "All (* *.*)";
     QStringList fns =

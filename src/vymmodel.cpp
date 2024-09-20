@@ -61,6 +61,7 @@
 #include "xlinkobj.h"
 #include "xml-freeplane.h"
 #include "xml-vym.h"
+#include "xml-owl.h"
 #include "xmlobj.h"
 #include "zip-agent.h"
 
@@ -487,6 +488,9 @@ File::ErrorCode VymModel::loadMap(QString fname, const File::LoadMode &lmode,
         case File::FreemindMap:
             reader = new FreeplaneReader(this);
             break;
+        case File::OwlMap:
+            reader = new OwlReader(this);
+            break;
         default:
             QMessageBox::critical(0, tr("Critical Parse Error"),
                                   "Unknown FileType in VymModel::load()");
@@ -513,7 +517,7 @@ File::ErrorCode VymModel::loadMap(QString fname, const File::LoadMode &lmode,
     }
 
     QString xmlfile;
-    if (fname.right(4) == ".xml" || fname.right(3) == ".mm") {
+    if (fname.right(4) == ".xml" || fname.right(3) == ".mm" || fname.right(4) == ".owl") {
         xmlfile = fname;
         zipped = false;
 

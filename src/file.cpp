@@ -292,6 +292,8 @@ File::FileType getMapType(const QString &fn)
             return File::VymMap;
         if (postfix == "mm")
             return File::FreemindMap;
+        if (postfix == "owl")
+            return File::OwlMap;
     }
     return File::UnknownMap;
 }
